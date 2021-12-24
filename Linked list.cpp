@@ -4,35 +4,45 @@ using namespace std;
 
 struct Node{
     int data;
-    struct Node *nptr;
+    Node *nptr;
 };
 
-struct Node *START=NULL;   //variable to point first node
+// struct Node *START=NULL;   //variable to point first node
 
-struct Node* createNode(){
-    struct Node *temp=new struct Node;
+
+/* this is the code when Node is not decleared as a global variable 😅😁*/
+
+ Node* createNode(){
+     Node *temp=new Node;
     return temp;
 }
 
-void insertNode(int data){
-    struct Node *np;
-    struct Node *temp=createNode();
+void insertNode(Node** START,int data){
+  
+     Node *temp=createNode();
     temp->data=data;
-    if(START==NULL){
-        START=temp;
-        //temp->nptr==NULL;
-    }
-    else{
-        np=START;
-        while(np->nptr!=NULL){
-            np=np->nptr;
-            np->nptr=temp;
-        }
-        //temp->nptr=NULL;
-    }
+    temp->nptr=*START;
+    *START = temp;
+
+    // while(temp->nptr!=NULL){
+    //     np=np->nptr;
+    //     np->nptr=temp;
+    // }
+    // temp->nptr=NULL;
+    
     //cout << "Value 65 is added to the latest node" << endl;
 }
+void dataInList(Node *START){
+    // print the data available in a list 
+    while(START!=NULL){
+		cout << START->data <<" ";
+		START = START->nptr;
+	}
 
+}
 int main(){
-    insertNode(65);
+    Node* START=NULL; 
+    //passing refrence address of node as a parameter 
+    insertNode(&START,65);
+    dataInList(START);
 }
