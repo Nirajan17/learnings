@@ -19,18 +19,20 @@ void insertNode(){
     struct Node *temp=createNode();
     cout <<"Enter a number " ;
     cin >> temp->data;
-    if(START==NULL){
+    // if(START==NULL){
+    //     // START=temp;
+    //     temp->nptr=START;
+        // START=temp;
+    // }
+    // else{
+        temp->nptr=START;
         START=temp;
-        //temp->nptr==NULL;
-    }
-    else{
-        np=START;
-        while(np->nptr!=NULL){
-            np=np->nptr;
-            np->nptr=temp;
-        }
-        //temp->nptr=NULL;
-    }
+        // while(np->nptr!=NULL){
+        //     np=np->nptr;
+        //     np->nptr=temp;
+        // }
+        // temp->nptr=NULL;
+    // }
 }
 
 void deleteNode(){               //deletion of first node
@@ -46,7 +48,7 @@ void deleteNode(){               //deletion of first node
 }
 
 void viewList(){
-    struct Node *tem;
+    struct Node* tem;
     if(START==NULL){
         cout << "List is Empty!"<<endl;
     }
