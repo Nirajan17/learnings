@@ -82,6 +82,9 @@ waves around us so that if we wanted to send the level 4 current, current of lev
 current limiting things around us like microwaves.That is why there is a certain level of current flow for individual
 1 and 0 state.
 
+A current carrying conductor carries energy in the form of em waves around it's space.The changing field of the moving electrons causes the magnetism and process continus,thus carrying energy.
+Voltage may be the measure of the poynting vector in the direction of the em wave propagation.
+
 
 
 
