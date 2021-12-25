@@ -14,10 +14,11 @@ struct Node* createNode(){
     return temp;
 }
 
-void insertNode(int data){
+void insertNode(){
     struct Node *np;
     struct Node *temp=createNode();
-    temp->data=data;
+    cout <<"Enter a number " ;
+    cin >> temp->data;
     if(START==NULL){
         START=temp;
         //temp->nptr==NULL;
@@ -30,9 +31,68 @@ void insertNode(int data){
         }
         //temp->nptr=NULL;
     }
-    //cout << "Value 65 is added to the latest node" << endl;
+}
+
+void deleteNode(){               //deletion of first node
+    struct Node *temp;
+    if(START==NULL){
+        cout<<"List is empty!"<< endl;
+    }
+    else{
+        temp=START;
+        START=START->nptr;
+        delete(temp);
+    }
+}
+
+void viewList(){
+    struct Node *tem;
+    if(START==NULL){
+        cout << "List is Empty!"<<endl;
+    }
+    else{
+        tem=START;
+        while(tem!=NULL){
+            cout << tem->data << endl;
+            tem=tem->nptr;
+        }
+    }
+}
+
+int Choice(){
+    int choice;
+    cout << "Choose from the option." << endl;
+    cout << "1. Insert Node" << endl
+         << "2. Delete first Node."<<endl
+         << "3. View List" << endl
+         << "4. Exit" << endl;
+    cin>>choice;
+    return choice;
 }
 
 int main(){
-    insertNode(65);
+    while(1){
+        switch(Choice()){
+        case 1:{
+            insertNode();
+            break;
+        }
+        case 2:{
+            deleteNode();
+            break;
+        }
+        case 3:{
+            viewList();
+            break;
+        }
+        case 4:{
+            exit(0);
+            break;
+        }
+        default:{
+            cout << "Wrong Choice!" << endl;
+            exit(0);
+        }
+        }
+    }
 }
